@@ -1,0 +1,25 @@
+ROTATION OF OBJECT :
+
+void Update()
+    {
+
+        transform.Rotate(new Vector3(15, 30, 45) * Time.deltaTime);
+    }
+
+BALL MOVEMENT:
+
+public float speed;
+    private Rigidbody rb;
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+    private void FixedUpdate()
+    {
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
+
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        rb.AddForce(movement*speed);
+    }
